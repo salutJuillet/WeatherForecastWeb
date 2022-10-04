@@ -1,0 +1,16 @@
+current weather:
+api.openweathermap.org/data/2.5/forecast/daily?lat=37.6526120&lon=126.6700900&cnt=7&appid=20d23470b49d9445492ed910c8d16df8
+
+hourly/5days:
+http://api.openweathermap.org/data/2.5/forecast?lat=37.6526120&lon=126.6700900&appid=20d23470b49d9445492ed910c8d16df8
+
+
+
+touchstart 손가락이 스크린에 닿을 때
+touchmove 손가락이 스크린에 닿은 채로 움직일 때
+touchend 손가락을 뗄 때
+touchcancel 또는 touched 취소 이벤트
+
+gesturestart 두 번째 손가락이 화면에 닿을 때
+gesturechange 두 개 이상의 손가락이 화면에 닿은 상태에서 움직일 때
+gestureend 두 개 이상의 손가락이 닿은 상태에서 하나의 손가락이 떨어질 때

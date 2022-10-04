@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--반응형에 꼭 필요-->
+    <title>My Weather</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <nav>
+            <form name="searchForm" id="searchForm">
+                <div class="searchBox">
+                    <input type="search" id="search" name="search" placeholder="도시명">
+                    <span class="material-icons search">search</span>
+                </div>
+            </form>
+        </nav>
+
+    <h1 class="city-title"><span class="material-icons">place</span> <span id="city"></span></h1>
+    <p id="ntime" class="text-center"></p>
+        <div class="row col-9 margin-auto">
+            <div class="col-6" id="iconbox">
+                <img src="" alt="" id="icon" class="floating">
+            </div>
+            <div class="col-6" id="nowtemp"></div>
+            <div class="col-12 text-center">
+                <p id="maxmintemp"></p>
+                <p id="desc">Every day, good day!</p>
+            </div>
+        </div>
+
+        <div class="row light-blue py-20">
+            <div class="offset-1 col-5">
+                <ul>
+                    <li><i class="wi wi-sunrise"></i> 일출 <span id="sunrise"></span></li>
+                    <li><i class="wi wi-cloudy"></i> 구름 <span id="clouds"></span></li>
+                    <li><i class="wi wi-windy"></i> 바람 <span id="wind"></span></li>
+                </ul>
+            </div>
+            <div class="col-5">
+                <ul>
+                    <li><i class="wi wi-sunset"></i> 일몰 <span id="sunset"></span></li>
+                    <li><i class="wi wi-humidity"></i> 습도 <span id="humidity"></span></li>
+                    <li><i class="material-icons">accessibility</i> 체감 <span id="feels_like"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container swiper-slide" id="wrapper">
+        <ul id="swiper" class="row">
+            <!-- loop -->
+            <li>
+                <div class="dayWeather">
+                    <p class="daydate"></p>
+                    <img src="" alt="">
+                    <p class="daytemp"></p>
+                    <p class="daydesc"></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const wrapper = document.getElementById('wrapper');
+        const swiper2 = document.getElementById('swiper');
+        let left_w = wrapper.getBoundingClientRect().left; //wrapper의 x값
+        let hei_w = wrapper.offsetHeight; //wrapper의 높이 200px
+        let wei_w = wrapper.offsetWidth; //wrapper의 너비
+        let len_sw = swiper2.childrenlength;
+
+        wrapper.addEventListener('touchmove', startSlider, false);
+        wrapper.addEventListener('touchend', endSlider, false);
+        let ul = 0; //ul태그의 위치
+        let now = 0; //정지했을 때의 위치
+        let prev = 0; //이동방향
+        let left_sw = 0;
+
+        function startSlider(e){
+            // e.preventDefault(); //클릭시 이벤트 발생을 막기 위해
+            prev = e.touches[0].clientX - left_w;
+            let left_sw = swiper2.getBoundingClientRect().left;
+            if(prev > now) {
+                ul += 10;
+            }else{
+                ul -= 10;
+            }
+            moveSlider();
+            now = prev;
+        }
+        function endSlider(e){
+            let width_w = swiper2.offsetWidth - wei_w;
+            console.log(width_w);
+            if(ul > 0) { ul = 0;}
+            moveSlider();
+        }
+        function moveSlider(){
+            swiper2.style.transform = `translateX(${ul}px)`;
+        }
+    </script>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

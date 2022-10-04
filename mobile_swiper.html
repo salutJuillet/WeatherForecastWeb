@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        html,body{
+            display:flex;
+            flex-wrap:wrap;
+            flex-direction:column;
+            justify-content:center;
+            overflow-x:hidden;
+            width:100%;
+            min-height:100vh; /*100퍼센트*/
+            background-color:#000;
+        }
+        #wrapper{
+            position:absolute;
+            overflow:hidden;
+            margin:0 auto;
+            height:50vh; /*50퍼센트*/
+            border:1px solid red;
+            aspect-ratio:1.5 / 1; /*모바일에서는 뒤에 컨텐츠가 더 있다는 것을 알리기 위해 끝을 잘린채로 남겨야 한다.*/
+        }
+        #swiper{
+            display:flex;
+            flex-wrap:nowrap;
+            position:relative;
+            transition:all .1s;
+            cursor:pointer;
+        }
+        #swiper li{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex:none;
+            position:relative;
+            height:50vh;
+            background-color:#fff;
+            border:1px solid #000;
+            font-size:5vw;
+            aspect-ratio:1 / 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul id="swiper">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+    </div>
+    
+    <script>
+        const wrapper = document.getElementById('wrapper');
+        const swiper = document.getElementById('swiper');
+
+        //js 모바일 이벤트들 touchmove, tochend 등
+        let left_wrap = wrapper.getBoundingClientRect.left; //x값 위치정보를 가져온다.
+        let hei = wrapper.offsetHeight; //크기정보(높이값)을 가져온다.
+        let len = swiper.children.length; //자식 개수를 가져온다.
+        let ul_wid = hei * len;
+        let per = hei / (window.innerHeight / 20);
+
+        window.addEventListener('resize',() => {
+            left_wrap = wrapper.getBoundingClientRect().left;
+            hei = wrapper.offsetHeight;
+            ul_wid = hei * len;
+            per = hei / (window.innerHeight / 20);
+        });
+        let pos = { prev:0, now:0, ul:0 }
+        let order;
+        wrapper.addEventListener('touchmove', startSlider, false); //wrapper에 touchmove가 되면 startSlider 함수가 실행된다.
+        wrapper.addEventListener('touchend', adSlider, false); //wrapper에 touchend가 되면 adSlider 함수가 실행된다.
+
+        function startSlider(e){
+            e = e || window.event;
+            e.preventDefault();
+
+            pos.prev = e.changedTouches[0].clientX - left_wrap;
+            if(pos.prev > pos.now){
+                //오른쪽으로 움직임
+                pos.ul += per;
+            }else{
+                //왼쪽으로 움직임
+                pos.ul -= per;
+            }
+            moveSlider();
+            pos.now = pos.prev; //함수 실행 후 pos 다시 셋팅
+        }
+
+        function moveSlider(){
+            swiper.style.transform = `translateX(${pos.ul}px)`;
+        }
+        function adSlider(){
+            order = Math.round(pos.ul / hei);
+            pos.ul = order * hei;
+            if(pos.ul > 0){ pos.ul = 0; }
+            if(pos.ul < -(ul_wid - hei)){
+                pos.ul = -(ul_wid - hei);
+            }
+            moveSlider();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+1. cordova프로젝트 생성 
+   cordova create 폴더명 net.이름.net.hello 프로젝트명
+
+2. ios 앱 , android 앱
+   cd hello
+   cordova platform add (android, ios)
+   cordova build (android)
+   cordova emulate android  
+   cordova run android
+
+3. 아이콘 셋팅 
+  = 안드로이드 
+  <platform name="android">
+    <!-- 스플래시 화면 -->
+    <splash src="경로"  density="해상도" />
+
+    <!-- 런처 아이콘 -->
+   <icon src="경로" density="해상도" />
+ </platform>
+
+  cordova platform remove android
+  cordova platform rm android
+
+  cordova platform update android

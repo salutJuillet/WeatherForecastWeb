@@ -1,0 +1,164 @@
+@import url("reset.css");
+@import url("webfonts.css");
+@import url("weather-icons.css");
+@import url("weather-icons-wind.css");
+@import url("bootstrap-grid.min.css");
+
+body{
+    background:#b7e9ff;
+    font-family:'notoSansKr', sans-serif;
+    font-size:16px;
+    color:#000;
+    font-weight:400;
+}
+nav{
+    padding:20px;
+    display:flex;
+    justify-content:flex-end;
+}
+.searchBox{
+    border:1px solid rgba(172, 45, 45, 0);
+    border-radius:1em;
+    padding:3px;
+    display:flex;
+}
+.searchBox input[type=search]{
+    width:1px;
+    transition:all .3s;
+}
+.searchBox.active{
+    border:1px solid rgba(255,255,255,1);
+}
+.searchBox.active input[type=search]{
+    width:150px;
+}
+.search{
+    margin-right:5px;
+    line-height:30px;
+}
+#search{
+    border:none;
+    background:transparent;
+}
+#search:focus{
+    outline:none;
+}
+
+h1.city-title{
+    font-size:1.7em;
+    font-weight:700;
+    text-align:center;
+    margin-top:2em;
+    margin-bottom:0.5em;
+}
+.margin-auto{
+    margin-left:auto;
+    margin-right:auto;
+}
+.text-center{
+    text-align:center;
+}
+#ntime{
+    margin-bottom:30px;
+    color:#444;
+}
+#iconbox, #nowtemp{
+    height:100px;
+}
+#iconbox{
+    text-align:right;
+}
+/**내가 혼자 한 거**/
+#iconbox img{
+    height:100%;
+}
+.floating{
+    animation-name: floating;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+/****/
+#nowtemp{
+    font-size:4em;
+    line-height:1.6em; /*원래는 1.1em*/
+    text-align:left;
+    font-weight:500;
+    color:#fff;
+    text-shadow: 0 0 3px #777; /**이것도 혼자**/
+}
+.col-12{
+    margin-top:1.5em;
+}
+#minmaxtemp{
+    margin-bottom:10px;
+}
+.py-20{
+    padding-top:1em;
+    padding-bottom:1em;
+    margin-top:2em;
+    margin-bottom:2em;
+}
+.light-blue{
+    background:rgba(255,255,255,.2);
+}
+.light-blue li{
+    line-height:24px;
+}
+/**내가 혼자 한 거**/
+.wi-humidity{
+    width:20px;
+    text-align:center;
+}
+/**/
+i.material-icons{
+    font-size:20px;
+    list-style:20px;
+}
+
+/* dayWeather */
+#wrapper{
+    overflow:hidden;
+    height:200px;
+}
+#swiper{
+    flex-wrap:nowrap;
+    position:relative;
+}
+#swiper li{
+    padding:10px 15px;
+}
+.dayWeather{
+    width:120px;
+    padding:15px;
+    background-color:rgba(255,255,255,.7);
+    color:#333;
+    font-size:12px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 0 15px 0 rgba(246,239,35,.15), 0 0 5px 0 rgba(0,0,0,.2);
+}
+.daydate{
+    font-weight:700;
+    margin-bottom:10px;
+}
+.dayWeather img{
+    height:60px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+.daytemp{
+    margin-top:10px;
+    margin-bottom: 5px;
+}
+
+
+/**내가 혼자 한 거**/
+@keyframes floating{
+    0% { transform:translateY(0); }
+    20% { transform:translateY(-2px); }
+    40% { transform:translateY(0); }
+    60% { transform:translateY(2px); }
+}
+/****/
