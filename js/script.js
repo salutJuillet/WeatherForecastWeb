@@ -1,6 +1,5 @@
 'use strict';
 
-
 let myLat = 0, myLon = 0;
 const search = document.getElementsByClassName("search")[0];
 const searchBox = document.getElementsByClassName("searchBox")[0];
