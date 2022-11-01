@@ -17,9 +17,9 @@
 
 ## Built With
 
-[<img src="https://img.shields.io/badge/HTML-61DAFB?style=flat-square&logo=html5&logoColor=white"/>][html-url]  
-[<img src="https://img.shields.io/badge/CSS-339933?style=flat-square&logo=css3&logoColor=white"/>][css-url]  
-[<img src="https://img.shields.io/badge/javascript-47A248?style=flat-square&logo=javascript&logoColor=white"/>][javascript-url]  
+[<img src="https://img.shields.io/badge/HTML-E34F26?style=flat-square&logo=html5&logoColor=white"/>][html-url]  
+[<img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white"/>][css-url]  
+[<img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/>][javascript-url]  
 <br/><br/>
 
 
