@@ -8,7 +8,7 @@
 # Weather Forecast Web
 
 <div align="center">
-  <img src="img/preview.png" width="400px"/>
+  <img src="img/preview.png" width="800px"/>
 </div>
 
 <br/><br/>
@@ -27,7 +27,7 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Installation
+### How to Access
 
 1. Clone the repo
    ```sh
