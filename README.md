@@ -8,7 +8,8 @@
 # Weather Forecast Web
 
 <div align="center">
-  <img src="img/preview.png" width="800px"/>
+  <img src="img/preview.png" width="800px"/> <br/>
+<a href="https://youtu.be/JFYCtW_7KbI" target="_blank">https://youtu.be/JFYCtW_7KbI</a>
 </div>
 
 <br/><br/>
